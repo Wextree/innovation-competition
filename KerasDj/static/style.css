@@ -1,0 +1,121 @@
+		*{
+			padding: 0;
+			margin: 0;
+			}
+		
+		.box1{
+			width: 1535px;
+			height: 720px;
+			margin: 0 auto;
+			background: white;
+			background-image: url("background1.jpg");
+			float: left;
+			text-align: center;
+			/* background-repeat设置重复			background-position可以设置开始位置 */
+			}
+			
+		/* #color{
+			width: 300px;
+			height: 30px;
+		} */
+		
+		#label{
+			width: 100px;
+			height: 30px;
+		}
+		
+		#submit{
+			width: 50px;
+			height: 30px;
+		}
+		
+		h1{
+			margin: 100px 0 50px 0;
+			font-size: 100px;
+			color: white;
+		}
+		
+		.box2{
+			width: 384px;
+			height: 32px;
+			margin: 0 auto;
+		}
+		
+		.a{
+			width: 32px;
+			height: 32px;
+			background-color: green;
+			float: left;
+		}
+		
+		.b{
+			width: 32px;
+			height: 32px;
+			background-color: purple;
+			float: left;
+		}
+		.c{
+			width: 32px;
+			height: 32px;
+			background-color: white;
+			float: left;
+		}
+		
+		.d{
+			width: 32px;
+			height: 32px;
+			background-color: brown;
+			float: left;
+		}
+		.e{
+			width: 32px;
+			height: 32px;
+			background-color: blue;
+			float: left;
+		}
+		
+		.f{
+			width: 32px;
+			height: 32px;
+			background-color: cyan;
+			float: left;
+		}
+		.g{
+			width: 32px;
+			height: 32px;
+			background-color: yellow;
+			float: left;
+		}
+		
+		.h{
+			width: 32px;
+			height: 32px;
+			background-color: gray;
+			float: left;
+		}
+		.i{
+			width: 32px;
+			height: 32px;
+			background-color: red;
+			float: left;
+		}
+		
+		.j{
+			width: 32px;
+			height: 32px;
+			background-color: pink;
+			float: left;
+		}
+		.k{
+			width: 32px;
+			height: 32px;
+			background-color: orange;
+			float: left;
+		}
+		
+		.l{
+			width: 32px;
+			height: 32px;
+			background-color: black;
+			float: left;
+		}
