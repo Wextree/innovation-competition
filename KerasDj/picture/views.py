@@ -4,17 +4,19 @@ import json
 from io import BytesIO
 import base64
 # Create your views here.
-
+import keras as k
 from keras.models import load_model
 import numpy as np
 from PIL import Image
 # from .models import CNNnet
 
+
 def index(request):
 
-    return render(request, 'index.html')
+	return render(request, 'index.html')
 
 def pic(request):
+	k.backend.clear_session()
 	content = request.GET['content']
 	print("一下为输出：")
 	print(type(content), content)
