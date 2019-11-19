@@ -8,11 +8,14 @@ import keras as k
 from keras.models import load_model
 import numpy as np
 from PIL import Image
+import datetime
+import os
 # from .models import CNNnet
 
 
 def index(request):
-
+	for name in os.listdir('./picture/pic'):
+		os.remove('./picture/pic/' + name)
 	return render(request, 'index.html')
 
 def pic(request):
@@ -53,7 +56,9 @@ def pic(request):
 		[noise, color, label.reshape((-1, 1))], verbose=0)
 	img = (generated_images[0] * 127.5 + 127.5).astype(np.uint8)
 	img = Image.fromarray(img)
-	img.save("1.jpg")
+	nowtime = str(datetime.datetime.now())
+	pic_name = './picture/pic/' + nowtime[-6:] + '.jpg'
+	img.save(pic_name)
 	f = BytesIO()
 	img.save(f, 'jpeg')
 	result = f.getvalue()
