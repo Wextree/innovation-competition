@@ -1,5 +1,5 @@
 <template>
-  <div id="body">
+  <div id="page-body">
     <!-- 输入框-->
     <div id = 'input-holder'>
       <div id = 'input-box'>
@@ -76,14 +76,14 @@ export default {
 </script>
 
 <style>
-#body {
+#page-body {
+  overflow: hidden;
   position: relative;
-  top: 2rem;
+  display: block;
+  margin: 50px;
   border: 2px solid greenyellow;
-  height: 720px;
-  width: 1280px; 
-  max-width: 90%;
-  max-height: 90%;
+  height: 90%;
+  width: 90%;
   margin-left: 50%;
   transform: translate(-50%, 0); 
 }
