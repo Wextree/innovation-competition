@@ -35,7 +35,7 @@ export default {
   mounted: function () {
     var basePath = '../../static/images/'
     var format = '.png'
-    var fileName = ['aria', 'irina', 'miku', 'mio', 'nameless', 'irina', 'miku', 'mio', 'nameless', 'irina', 'miku', 'mio', 'nameless']
+    var fileName = ['aria', 'irina', 'miku']
     for (let name of fileName) {
       this.imgs.push(basePath + name + format)
     }
