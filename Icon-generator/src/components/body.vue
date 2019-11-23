@@ -10,7 +10,7 @@
     </div>
    <!--图片显示框-->
     <div id = 'img-holder'>
-        <imgDisplayer id='img-box' :imgs='imgs'></imgDisplayer>
+        <imgDisplayer id='img-box' :imgs='imgs' :selected = 'selected' @select-img ='select_img'></imgDisplayer>
     </div>
   </div>
 </template>
@@ -25,7 +25,8 @@ export default {
   name: 'homeBody',
   data: function () {
     return {
-      imgs: []
+      imgs: [],
+      selected: 0
     }
   },
   components: {
@@ -35,12 +36,28 @@ export default {
   mounted: function () {
     var basePath = '../../static/images/'
     var format = '.png'
-    var fileName = ['aria', 'irina', 'miku']
+    var fileName = ['mio']
     for (let name of fileName) {
       this.imgs.push(basePath + name + format)
     }
   },
   methods:{
+    select_img(index){
+      console.log("slect " + index)
+      this.selected = index
+    },
+    scroll_left(){
+      var div = document.getElementById('small-img-holder')
+      setTimeout(function(){
+        div.scrollLeft = div.scrollWidth
+      }, 50)
+    },
+    insert_img(url){
+      console.log(url)
+      this.imgs.push(url)
+      this.selected = this.imgs.length-1
+      this.scroll_left()
+    },
     handleSubmit: function (data) {
       const datajson = JSON.stringify(data)
       console.log(axios.defaults.baseURL)
@@ -51,8 +68,8 @@ export default {
       }).then(this.handleReturn)
     },
     handleReturn (res) {
-      img =  'data:image/jpeg;base64,' + res.data
-      this.imgs.push(img)
+      var img =  'data:image/jpeg;base64,' + res.data
+      this.insert_img(img)
     }
   }
 }

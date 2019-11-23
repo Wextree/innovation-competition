@@ -2,18 +2,18 @@
 <div id="imgComponent">
   <!-- 大图显示 -->
     <!-- 上一个 -->
-    <div class="large-img-holder">
+    <div id="large-img-holder">
       <img class="large-img" :src="imgs[selected]">
     </div>
     <!-- 下一个 -->
   <div>
     <!-- 缩略图展示 -->
-    <div class="small-img-holder">
+    <div id="small-img-holder">
       <img v-for="(img,index) in imgs"
         :class="{ active:selected===index, 'small-img':true }"
         :key="index"
         :src="img"
-        @mousedown ="selected=index"
+        @mousedown ="$emit('select-img', index)"
         >
     </div>
   </div>
@@ -23,12 +23,12 @@
 <script>
 export default {
   props: {
-    imgs: Array
+    imgs: Array,
+    selected: Number
   },
   name: 'imgDisplayer',
   data: function () {
     return {
-      selected: 0
     }
   },
   methods: {
@@ -38,6 +38,8 @@ export default {
     nextImg () {
       this.selected = this.selected === this.imgs.length - 1 ? this.imgs.length - 1 : this.selected + 1
     }
+  },
+  computed: {
   }
 }
 </script>
@@ -68,14 +70,14 @@ export default {
   /* height: auto; */
   margin: 0;
 }
-.large-img-holder {
+#large-img-holder {
   max-width: 90%;
   max-height: 60%;
   width: 320px;
   height: 320px;
   margin: 0 auto;
 }
-.small-img-holder {
+#small-img-holder {
   /* flex-wrap: wrap; */
   display: flex;
   padding-bottom: 15px;
