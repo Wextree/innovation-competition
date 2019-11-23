@@ -51,8 +51,8 @@ export default {
       }).then(this.handleReturn)
     },
     handleReturn (res) {
-      const re = res.data
-      this.imgs.push(res)
+      img =  'data:image/jpeg;base64,' + res.data
+      this.imgs.push(img)
     }
   }
 }
