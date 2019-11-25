@@ -58,17 +58,17 @@ export default {
       this.scroll_left()
     },
     handleSubmit: function (data) {
-          var basePath = '../../static/images/'
-      var format = '.jpg'
-      var fileName = ['123']
-      this.insert_img(basePath + fileName +format)
-      // const datajson = JSON.stringify(data)
-      // console.log(axios.defaults.baseURL)
-      // axios.get('/picture/pic', {
-      //   params: {
-      //     content: datajson
-      //   }
-      // }).then(this.handleReturn)
+      //     var basePath = '../../static/images/'
+      // var format = '.jpg'
+      // var fileName = ['123']
+      // this.insert_img(basePath + fileName +format)
+      const datajson = JSON.stringify(data)
+      console.log(axios.defaults.baseURL)
+      axios.get('/picture/pic', {
+        params: {
+          content: datajson
+        }
+      }).then(this.handleReturn)
     },
     handleReturn (res) {
       var img =  'data:image/jpeg;base64,' + res.data
