@@ -51,14 +51,14 @@ export default {
   height: 100%;
 }
 .active {
-  border: 2px solid wheat;
+  border: 2px solid rgb(49, 152, 248);
 }
 .small-img {
   margin-left: 10px;
-  max-width: 19.5%;
-  height: auto;
-  width: 64px;
+  /* max-width: 19.5%; */
+  min-width: 64px;
   height: 64px;
+  width: 64px;
   /* width: 32px;
   height: 32px; */
 }

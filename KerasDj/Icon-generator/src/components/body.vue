@@ -6,7 +6,6 @@
         <!-- <div id = 'background'></div> -->
         <inputArea id='input-comp' @submit = 'handleSubmit'></inputArea>
       </div>
-      <p id='foot'>GDUT研发中心</p>
     </div>
    <!--图片显示框-->
     <div id = 'img-holder'>
@@ -59,13 +58,17 @@ export default {
       this.scroll_left()
     },
     handleSubmit: function (data) {
-      const datajson = JSON.stringify(data)
-      console.log(axios.defaults.baseURL)
-      axios.get('/picture/pic', {
-        params: {
-          content: datajson
-        }
-      }).then(this.handleReturn)
+          var basePath = '../../static/images/'
+      var format = '.jpg'
+      var fileName = ['123']
+      this.insert_img(basePath + fileName +format)
+      // const datajson = JSON.stringify(data)
+      // console.log(axios.defaults.baseURL)
+      // axios.get('/picture/pic', {
+      //   params: {
+      //     content: datajson
+      //   }
+      // }).then(this.handleReturn)
     },
     handleReturn (res) {
       var img =  'data:image/jpeg;base64,' + res.data
