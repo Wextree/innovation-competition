@@ -1,4 +1,8 @@
-import os
+from keras.models import load_model
 
-for name in os.listdir('E:/KerasDj/picture/pic'):
-    os.remove('E:/KerasDj/picture/pic/' + name)
+def c():
+    gen = load_model('../KerasDj/CNNnet/gen_100.h5')
+    print(gen)
+
+if __name__ == '__main__':
+    c()
