@@ -1,8 +1,6 @@
-from keras.models import load_model
+from PIL import Image
 
-def c():
-    gen = load_model('../KerasDj/CNNnet/gen_100.h5')
-    print(gen)
-
-if __name__ == '__main__':
-    c()
+img = Image.open("E:/git/1.jpg")
+print(img.size)
+img = img.resize((423, 270))
+print(img.size)

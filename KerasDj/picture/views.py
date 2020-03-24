@@ -10,7 +10,7 @@ import numpy as np
 from PIL import Image
 import datetime
 import os
-# from .models import CNNnet
+from picture.models import Picture
 
 
 def index(request):
@@ -30,6 +30,10 @@ def pic(request):
 	color = content_z["color12"]
 	label = content_z["scope"]
 	print(color, label)
+	picture = Picture()
+	picture.color = color
+	picture.label = label
+	picture.save()
 
 	start_load_time = datetime.datetime.now()
 	gen = load_model('KerasDj/CNNnet/gen_100.h5')
@@ -66,6 +70,12 @@ def pic(request):
 	nowtime = str(datetime.datetime.now())
 	pic_name = './picture/pic/' + nowtime[-6:] + '.jpg'
 	img.save(pic_name)
+	print(type(img))
+	print(img.size)
+	# 压缩图像
+	print("resize后：")
+	img = img.resize((16, 16))
+	print(img.size)
 	f = BytesIO()
 	img.save(f, 'jpeg')
 	result = f.getvalue()
