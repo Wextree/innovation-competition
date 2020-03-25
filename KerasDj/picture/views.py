@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 import json
 from io import BytesIO
 import base64
@@ -12,6 +13,9 @@ import datetime
 import os
 from picture.models import Picture
 
+
+def redirect(request):
+	return HttpResponseRedirect("/picture/")
 
 def index(request):
 	for name in os.listdir('./picture/pic'):
