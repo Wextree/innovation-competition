@@ -74,12 +74,6 @@ def pic(request):
 	nowtime = str(datetime.datetime.now())
 	pic_name = './picture/pic/' + nowtime[-6:] + '.jpg'
 	img.save(pic_name)
-	print(type(img))
-	print(img.size)
-	# 压缩图像
-	print("resize后：")
-	img = img.resize((16, 16))
-	print(img.size)
 	f = BytesIO()
 	img.save(f, 'jpeg')
 	result = f.getvalue()
